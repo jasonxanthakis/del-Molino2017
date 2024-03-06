@@ -3,15 +3,16 @@ delMolinoEtAl_adjusted:
     notes: 'delMolinoEtAl eLife 2017: adjusted to reproduce Yao et al compartmental
         model'
     parameters:
-        baseline_current_Exc: 0.11503  nA
-        baseline_current_PV: 0.23366 nA
-        baseline_current_SST: 0.09431 nA
-        baseline_current_VIP: 0.08991 nA
+        baseline_current_Exc: 0.07  nA
+        baseline_current_PV: 0.215 nA
+        baseline_current_SST: 0.055 nA
+        baseline_current_VIP: 0.09 nA
         global_offset_current: 0.0 nA
         weight_scale_Exc: 1
         weight_scale_PV: 1
         weight_scale_SST: 1
         weight_scale_VIP: 1
+        global_weight_scale: 0.01
         delay_baseline_curr: 0ms
     cells:
         EXC:
@@ -118,7 +119,7 @@ delMolinoEtAl_adjusted:
             synapse: rs
             type: continuousProjection
             delay: 0
-            weight: weight_scale_Exc * 3.723e-05
+            weight: weight_scale_Exc * global_weight_scale * 359.6325
             random_connectivity:
                 probability: 1
         proj_Exc_PV:
@@ -127,7 +128,7 @@ delMolinoEtAl_adjusted:
             synapse: rs
             type: continuousProjection
             delay: 0
-            weight: weight_scale_Exc * 7.22e-05
+            weight: weight_scale_Exc * global_weight_scale * 590.8571429
             random_connectivity:
                 probability: 1
         proj_Exc_SST:
@@ -136,7 +137,7 @@ delMolinoEtAl_adjusted:
             synapse: rs
             type: continuousProjection
             delay: 0
-            weight: weight_scale_Exc * 3.033e-05
+            weight: weight_scale_Exc * global_weight_scale * 1239.04
             random_connectivity:
                 probability: 1
         proj_Exc_VIP:
@@ -145,7 +146,7 @@ delMolinoEtAl_adjusted:
             synapse: rs
             type: continuousProjection
             delay: 0
-            weight: weight_scale_Exc * 2.79e-05
+            weight: weight_scale_Exc * global_weight_scale * 294.9
             random_connectivity:
                 probability: 1
         proj_PV_Exc:
@@ -154,7 +155,7 @@ delMolinoEtAl_adjusted:
             synapse: rs
             type: continuousProjection
             delay: 0
-            weight: weight_scale_PV * -0.0002356
+            weight: weight_scale_PV * global_weight_scale * -111.52
             random_connectivity:
                 probability: 1
         proj_PV_PV:
@@ -163,7 +164,7 @@ delMolinoEtAl_adjusted:
             synapse: rs
             type: continuousProjection
             delay: 0
-            weight: weight_scale_PV * -1.36e-05
+            weight: weight_scale_PV * global_weight_scale * -373.9285714
             random_connectivity:
                 probability: 1
         proj_PV_SST:
@@ -172,7 +173,7 @@ delMolinoEtAl_adjusted:
             synapse: rs
             type: continuousProjection
             delay: 0
-            weight: weight_scale_PV * -6.6e-05
+            weight: weight_scale_PV * global_weight_scale * -57.92
             random_connectivity:
                 probability: 1
         proj_PV_VIP:
@@ -181,7 +182,7 @@ delMolinoEtAl_adjusted:
             synapse: rs
             type: continuousProjection
             delay: 0
-            weight: weight_scale_PV * -2.76e-05
+            weight: weight_scale_PV * global_weight_scale * -16.1875
             random_connectivity:
                 probability: 1
         proj_SST_Exc:
@@ -190,7 +191,7 @@ delMolinoEtAl_adjusted:
             synapse: rs
             type: continuousProjection
             delay: 0
-            weight: weight_scale_SST * -0.00027354
+            weight: weight_scale_SST * global_weight_scale * -113.385
             random_connectivity:
                 probability: 1
         proj_SST_PV:
@@ -199,7 +200,7 @@ delMolinoEtAl_adjusted:
             synapse: rs
             type: continuousProjection
             delay: 0
-            weight: weight_scale_SST * -1.65e-05
+            weight: weight_scale_SST * global_weight_scale * -123.3142857
             random_connectivity:
                 probability: 1
         proj_SST_SST:
@@ -208,7 +209,7 @@ delMolinoEtAl_adjusted:
             synapse: rs
             type: continuousProjection
             delay: 0
-            weight: weight_scale_SST * -0.0001221
+            weight: weight_scale_SST * global_weight_scale * -24.72
             random_connectivity:
                 probability: 1
         proj_SST_VIP:
@@ -217,7 +218,7 @@ delMolinoEtAl_adjusted:
             synapse: rs
             type: continuousProjection
             delay: 0
-            weight: weight_scale_SST * -1.02e-05
+            weight: weight_scale_SST * global_weight_scale * -15.3125
             random_connectivity:
                 probability: 1
         proj_VIP_PV:
@@ -226,7 +227,7 @@ delMolinoEtAl_adjusted:
             synapse: rs
             type: continuousProjection
             delay: 0
-            weight: weight_scale_VIP * -0.000126
+            weight: weight_scale_VIP * global_weight_scale * -89.25714286
             random_connectivity:
                 probability: 1
         proj_VIP_SST:
@@ -235,7 +236,7 @@ delMolinoEtAl_adjusted:
             synapse: rs
             type: continuousProjection
             delay: 0
-            weight: weight_scale_VIP * -3.4e-05
+            weight: weight_scale_VIP * global_weight_scale * -255.6
             random_connectivity:
                 probability: 1
         proj_VIP_VIP:
@@ -244,7 +245,7 @@ delMolinoEtAl_adjusted:
             synapse: rs
             type: continuousProjection
             delay: 0
-            weight: weight_scale_VIP * -1.7e-05
+            weight: weight_scale_VIP * global_weight_scale * -29.4
             random_connectivity:
                 probability: 1
     inputs:

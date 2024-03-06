@@ -19,6 +19,12 @@ def analyse(version):
     net.parameters['weight_scale_SST'] = 0
     net.parameters['delay_vip_mod_curr'] = '100s'
 
+    net.parameters['baseline_current_Exc'] = '0.062  nA'
+    net.parameters['baseline_current_PV'] = '0.210 nA'
+    net.parameters['baseline_current_SST'] = '0.058 nA'
+    net.parameters['baseline_current_VIP'] = '0.091 nA'
+    #pyr = 1, sst < 6, pv > 10, vip < 4
+
     traces, events = generate_and_run(sim, 
                                       network=net, 
                                       simulator="jNeuroML",
@@ -50,6 +56,8 @@ def analyse(version):
     rates = [pre_mod_vals[pop]for pop in pops_vs_colors.keys()]
     colors = pops_vs_colors.values()
 
+    print(rates)
+
     fig, ax = plt.subplots()
     plt.get_current_fig_manager().set_window_title('Steady state rates (start simulation): %s'%version)
     ax.set_ylabel('Avg firing rate (Hz)')
@@ -61,7 +69,7 @@ def analyse(version):
     rates = [post_mod_vals[pop]for pop in pops_vs_colors.keys()]
     ax.bar(pops, rates, color=colors)
 
-    
+    print(rates)
 
 if __name__ == '__main__':
 

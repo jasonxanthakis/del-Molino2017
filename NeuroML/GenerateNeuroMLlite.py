@@ -241,10 +241,10 @@ net = Network(id='delMolinoEtAl_adjusted')
 net.notes = 'delMolinoEtAl eLife 2017: adjusted to reproduce Yao et al compartmental model'
 
 net.parameters = {}
-net.parameters['baseline_current_Exc'] = '0.11503  nA'
-net.parameters['baseline_current_PV'] = '0.23366 nA' 
-net.parameters['baseline_current_SST'] = '0.09431 nA' 
-net.parameters['baseline_current_VIP'] = '0.08991 nA'
+net.parameters['baseline_current_Exc'] = '0.07  nA'
+net.parameters['baseline_current_PV'] = '0.215 nA' 
+net.parameters['baseline_current_SST'] = '0.055 nA' 
+net.parameters['baseline_current_VIP'] = '0.09 nA'
 #net.parameters['baseline_current_Exc'] = '0.0  nA'
 #net.parameters['baseline_current_PV'] = '0.0 nA' 
 #net.parameters['baseline_current_SST'] = '0.0 nA' 
@@ -256,6 +256,7 @@ net.parameters['weight_scale_Exc'] =  1
 net.parameters['weight_scale_PV'] =  1
 net.parameters['weight_scale_SST'] =  1
 net.parameters['weight_scale_VIP'] =  1
+net.parameters['global_weight_scale'] = 0.01
 
 net.parameters['delay_baseline_curr'] =  '0ms'
 #net.parameters['delay_vip_mod_curr'] =  '5ms'
@@ -324,6 +325,11 @@ W = [[0.00003723, -0.0002356, -0.00027354, 0],
      [0.0000279, -0.0000276, -0.0000102, -0.000017]]
 """
 
+W = [[359.6325, -111.52, -113.385, 0],
+    [590.8571429, -373.9285714, -123.3142857, -89.25714286],
+    [1239.04, -57.92, -24.72, -255.6],
+    [294.9, -16.1875, -15.3125, -29.4]]
+    
 for pre in pops:
     for post in pops:
 
@@ -337,7 +343,7 @@ for pre in pops:
                                                                 synapse='rs',
                                                                 type='continuousProjection',
                                                                 delay=0,
-                                                                weight='weight_scale_%s * %s' % (pre.id, weight),
+                                                                weight='weight_scale_%s * global_weight_scale * %s' % (pre.id, weight),
                                                                 random_connectivity=RandomConnectivity(probability=1)))
 
 #Individual Currents
