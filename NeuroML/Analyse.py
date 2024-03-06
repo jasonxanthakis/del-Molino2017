@@ -16,13 +16,13 @@ def analyse(version):
     sim = load_simulation_json('Sim%s.json'%version)
     net = load_network_json('%s.json'%version)
 
-    net.parameters['weight_scale_SST'] = 0
+    net.parameters['weight_scale_SST'] = 1.0
     net.parameters['delay_vip_mod_curr'] = '100s'
 
-    net.parameters['baseline_current_Exc'] = '0.062  nA'
-    net.parameters['baseline_current_PV'] = '0.210 nA'
+    net.parameters['baseline_current_Exc'] = '0.068  nA'
+    net.parameters['baseline_current_PV'] = '0.216 nA'
     net.parameters['baseline_current_SST'] = '0.058 nA'
-    net.parameters['baseline_current_VIP'] = '0.091 nA'
+    net.parameters['baseline_current_VIP'] = '0.092 nA'
     #pyr = 1, sst < 6, pv > 10, vip < 4
 
     traces, events = generate_and_run(sim, 
@@ -70,6 +70,27 @@ def analyse(version):
     ax.bar(pops, rates, color=colors)
 
     print(rates)
+
+def analyse_SST_reduced(version):
+
+
+    sim = load_simulation_json('Sim%s.json'%version)
+    net = load_network_json('%s.json'%version)
+
+    net.parameters['weight_scale_SST'] = 0
+    net.parameters['delay_vip_mod_curr'] = '100s'
+
+    net.parameters['baseline_current_Exc'] = '0.062  nA'
+    net.parameters['baseline_current_PV'] = '0.210 nA'
+    net.parameters['baseline_current_SST'] = '0.058 nA'
+    net.parameters['baseline_current_VIP'] = '0.091 nA'
+
+    traces, events = generate_and_run(sim, 
+                                      network=net, 
+                                      simulator="jNeuroML",
+                                      base_dir='./',
+                                      target_dir='./',
+                                      return_results=True)
 
 if __name__ == '__main__':
 

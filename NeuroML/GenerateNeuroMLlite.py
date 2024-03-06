@@ -241,10 +241,10 @@ net = Network(id='delMolinoEtAl_adjusted')
 net.notes = 'delMolinoEtAl eLife 2017: adjusted to reproduce Yao et al compartmental model'
 
 net.parameters = {}
-net.parameters['baseline_current_Exc'] = '0.07  nA'
-net.parameters['baseline_current_PV'] = '0.215 nA' 
-net.parameters['baseline_current_SST'] = '0.055 nA' 
-net.parameters['baseline_current_VIP'] = '0.09 nA'
+net.parameters['baseline_current_Exc'] = '0.068  nA'
+net.parameters['baseline_current_PV'] = '0.216 nA' 
+net.parameters['baseline_current_SST'] = '0.058 nA' 
+net.parameters['baseline_current_VIP'] = '0.092 nA'
 #net.parameters['baseline_current_Exc'] = '0.0  nA'
 #net.parameters['baseline_current_PV'] = '0.0 nA' 
 #net.parameters['baseline_current_SST'] = '0.0 nA' 
