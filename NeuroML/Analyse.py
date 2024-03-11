@@ -142,9 +142,13 @@ if __name__ == '__main__':
     #for v in ['delMolinoEtAl_low_baseline','delMolinoEtAl_high_baseline']:
     #    analyse(v)
 
-    #analyse('delMolinoEtAl_adjusted')
+    analyse('delMolinoEtAl_adjusted')
 
     analyse_SST_reduced('delMolinoEtAl_adjusted', [1.0, 0.8, 0.6, 0.4, 0.2, 0.0], ['Exc'], figsize = (6.4, 4.8))
+
+    #analyse_SST_reduced('delMolinoEtAl_adjusted', [1.0, 0.8, 0.6, 0.4, 0.2, 0.0], ['SST'], figsize = (6.4, 4.8))
+    #analyse_SST_reduced('delMolinoEtAl_adjusted', [1.0, 0.8, 0.6, 0.4, 0.2, 0.0], ['PV'], figsize = (6.4, 4.8))
+    #analyse_SST_reduced('delMolinoEtAl_adjusted', [1.0, 0.8, 0.6, 0.4, 0.2, 0.0], ['VIP'], figsize = (6.4, 4.8))
 
     analyse_SST_reduced('delMolinoEtAl_adjusted', [1.0, 0.6], ['SST', 'PV', 'VIP'], figsize = (8.5, 4.8))
 
